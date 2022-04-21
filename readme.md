@@ -1,6 +1,11 @@
-#bugly自动上传mapping 
+## bugly自动上传mapping 
 
 下载当前包，替换fuckBugly.bat内的appid和appkey
+
+版本采用$versionName-v$versionCode的方式，为保持一致，需要在bugly初始化时新增以下代码
+```
+CrashReport.setAppVersion(this, "${BuildConfig.VERSION_NAME}-v${BuildConfig.VERSION_CODE}")
+```
 
 将此包所在文件夹放入环境变量，然后命令行 运行 
 ```
