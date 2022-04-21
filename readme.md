@@ -26,3 +26,5 @@ project.tasks.whenTaskAdded { Task task ->
 }
 
 ```
+
+这个包含了openjdk8的jre，因为垃圾bugly竟然不支持11，想必大多数开发环境都已经换11+了，所以内置一套8的jre，方便直接使用
