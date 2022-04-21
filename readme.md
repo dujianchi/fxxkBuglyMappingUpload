@@ -1,3 +1,5 @@
+#bugly自动上传mapping 
+
 下载当前包，替换fuckBugly.bat内的appid和appkey
 
 将此包所在文件夹放入环境变量，然后命令行 运行 
