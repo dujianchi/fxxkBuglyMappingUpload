@@ -2,7 +2,7 @@
 
 将此包所在文件夹放入环境变量，然后命令行 运行 
 ```
-fuckBugly.bat "版本号" "mapping所在文件夹"
+fuckBugly.bat "版本号" "mapping所在文件夹" "你的appid" "你的appkey"
 ```
 
 同时支持gradle task 自动配置
@@ -12,12 +12,13 @@ android {}
 task _uploadMappingWindows(type:Exec){
     println("--------------------- upload fucking bugly mapping ---------------------")
     if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-        def dir = "$buildDir\\outputs\\mapping\\openRelease"
+        def dir = "$buildDir\\outputs\\mapping\\release"
+        def appid = 'appid'
+        def appkey = 'appkey'
         workingDir "$dir"
-        commandLine 'cmd', '/c', "fuckBugly.bat ${project.android.defaultConfig.versionName}-v${project.android.defaultConfig.versionCode} $dir"
+        commandLine 'cmd', '/c', "fuckBugly.bat ${project.android.defaultConfig.versionName}-v${project.android.defaultConfig.versionCode} $dir $appid $appkey"
     }
 }
-
 project.tasks.whenTaskAdded { Task task ->
     if (task.name.contains('assembleRelease')) {
         task.finalizedBy _uploadMappingWindows
