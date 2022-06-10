@@ -22,8 +22,9 @@ task _uploadMappingWindows(type:Exec){
         def dir = "$buildDir\\outputs\\mapping\\release"
         def appid = 'appid'
         def appkey = 'appkey'
+        def projectId = project.android.defaultConfig.applicationId
         workingDir "$dir"
-        commandLine 'cmd', '/c', "fuckBugly.bat ${project.android.defaultConfig.versionName}-v${project.android.defaultConfig.versionCode} $dir $appid $appkey"
+        commandLine 'cmd', '/c', "fuckBugly.bat ${project.android.defaultConfig.versionName}-v${project.android.defaultConfig.versionCode} $dir $appid $appkey $projectId"
     }
 }
 project.tasks.whenTaskAdded { Task task ->
